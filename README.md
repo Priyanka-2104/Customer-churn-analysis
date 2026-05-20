@@ -1,96 +1,109 @@
-# Customer Churn Prediction with Streamlit
+# 📊 Customer Churn Analysis & Prediction App
 
-This project demonstrates a complete machine learning workflow for predicting customer churn. It involves data cleaning, model training, feature importance analysis, and deployment of an interactive web application using Streamlit.
+## 🚀 Live Demo
 
-## Live Application
-
-You can view the deployed interactive application here:
+👉 Try this interactive application here:
 **[https://telco-churn-analysis.streamlit.app/](https://telco-churn-analysis.streamlit.app/)**
 
-## Key Features
+---
 
--   **Interactive Prediction**: Use sliders and dropdowns to input customer data and receive a churn prediction.
--   **Clear Results**: The app displays a clear, understandable prediction of whether a customer is likely to churn.
--   **Prediction Confidence**: Shows the model's confidence score (probability) for each prediction.
--   **Optimized Model**: Powered by a pruned logistic regression model that has been optimized through feature selection for efficiency and interpretability.
+## 📌 Project Overview
+This project is a Machine Learning-powered Customer Churn Prediction System built to analyze customer behavior and predict whether a customer is likely to leave a service.
+It helps businesses improve customer retention strategies using data-driven insights.
 
-## 1. Problem Statement
+---
 
-The goal of this project is to build a model that can predict which customers of a telecom company are most likely to "churn" (cancel their subscription). By identifying these at-risk customers, the business can proactively offer incentives or support to retain them, which is often more cost-effective than acquiring new customers.
+## 🎯 Objective
+- Predict whether a customer will churn (leave) or stay
+- Analyze important factors affecting churn
+- Provide an interactive UI for real-time predictions
 
-## 2. Dataset
+---
 
-This project uses the "Telco Customer Churn" dataset, a popular dataset for classification tasks. It contains 7043 customer records with 21 attributes, including:
+## 🧠 Machine Learning Model
+- Algorithm: Logistic Regression
+- Framework: Scikit-learn
+- Type: Binary Classification (Churn / No Churn)
 
-* **Demographic Info**: `gender`, `SeniorCitizen`, `Partner`, `Dependents`
-* **Account Info**: `tenure`, `Contract`, `PaymentMethod`, `MonthlyCharges`, `TotalCharges`
-* **Subscribed Services**: `PhoneService`, `MultipleLines`, `InternetService`, `OnlineSecurity`, etc.
-* **Target Variable**: `Churn` (Yes/No)
+---
 
-## 3. Methodology
+## 🛠️ Tech Stack
+- Python 🐍
+- Pandas 📊
+- NumPy 🔢
+- Scikit-learn 🤖
+- Matplotlib 📈
+- Seaborn 📉
+- Streamlit ⚡
 
-The project follows a standard data science workflow:
+---
 
-### a. Data Cleaning and Preprocessing
+## 📂 Project Structure
 
-* The `TotalCharges` column was converted to a numeric type, and rows with missing values were dropped.
-* The `customerID` column was removed as it is not a predictive feature.
-* The target variable `Churn` was converted from "Yes"/"No" to a binary format (1/0).
+telco-churn/
+│
+├── run.py # Streamlit app
+├── churn_model.joblib # Trained ML model
+├── churn_model_training.ipynb
+├── requirements.txt
+└── screenshots/
 
-### b. Model Training and Feature Selection
 
-* A Logistic Regression model was chosen for its effectiveness and high interpretability.
-* A `ColumnTransformer` pipeline was used to automatically apply `StandardScaler` to numerical features and `OneHotEncoder` to categorical features.
-* **Feature Importance Analysis**: The model's coefficients were analyzed to determine the impact of each feature on churn. It was discovered that `gender`, `PhoneService`, and `Partner` had a negligible impact on the model's predictive power.
-* **Model Pruning**: A second model was trained with these unimportant features removed. A comparison of performance reports showed no significant drop in accuracy or F1-score.
-* **Final Model**: The pruned model was selected for the final application as it provides the same performance with a simpler and more efficient structure. The final model achieved an **F1-score of 0.61** for predicting churners.
+---
 
-## 4. File Structure
+## 📸 App Screenshots
 
-The repository contains the following key files:
+### 🧾 Input Form
+![Input Form](screenshots/01_streamlit_input.png)
 
-* `churn_model_training.ipynb`: A Jupyter Notebook containing all steps for data analysis, feature selection, model training, and evaluation.
-* `run.py`: The main Streamlit application script that loads the trained model and serves the interactive UI.
-* `churn_model.joblib`: The pre-trained and pruned machine learning model pipeline.
-* `requirements.txt`: A list of all necessary Python libraries with pinned versions to ensure a consistent environment.
-* `runtime.txt`: A configuration file that explicitly tells Streamlit Cloud to use Python 3.11, matching the training environment.
-* `README.md`: This file.
+### 📊 Prediction Result
+![Prediction Result](screenshots/02_streamlit_prediction.png)
 
-## 5. How to Run Locally
+### 📉 Churn Analysis (Part 1)
+![Chart 1](screenshots/03_churn_distribution_1.png)
 
-To run this project on your local machine, follow these steps:
+### 📉 Churn Analysis (Part 2)
+![Chart 2](screenshots/04_churn_distribution_2.png)
 
-1.  **Clone the Repository**:
-    ```bash
-    git clone github.com/hynesc/telco-churn
-    cd telco-churn
-    ```
+---
 
-2.  **Set Up a Virtual Environment** (Recommended):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
+## ⚙️ How to Run Locally
 
-3.  **Install Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+# Clone repository
+git clone https://github.com/YOUR_USERNAME/customer-churn-analysis.git
 
-4.  **Train the Model (Optional)**: A pre-trained `churn_model.joblib` is already included. However, if you wish to review the analysis or retrain the model yourself, you can run the `churn_model_training.ipynb` notebook in a Jupyter environment. The notebook will generate a new `churn_model.joblib` file.
+# Move into project folder
+cd customer-churn-analysis
 
-5.  **Launch the Streamlit App**:
-    ```bash
-    streamlit run run.py
-    ```
-    Your web browser will automatically open with the interactive churn prediction dashboard.
+# Create virtual environment
+python -m venv venv
 
-## 6. Deployment
+# Activate environment
+venv\Scripts\activate
 
-This application is designed for deployment on Streamlit Cloud. The `requirements.txt` and `runtime.txt` files are crucial for a successful deployment, as they ensure the cloud environment perfectly matches the training environment, preventing version conflicts.
+# Install dependencies
+pip install -r requirements.txt
 
-## 7. Tools and Libraries
+# Run Streamlit app
+streamlit run run.py
 
-* **Data Analysis & Modeling**: Pandas, Scikit-learn, Jupyter
-* **Web Application**: Streamlit
-* **Plotting**: Matplotlib, Seaborn
+--
+
+📈 Key Insights
+
+Customers with shorter tenure are more likely to churn
+Higher monthly charges increase churn probability
+Contract type strongly affects retention
+
+--
+
+💡 Business Impact
+
+This project helps companies:
+Reduce customer loss 📉
+Improve retention strategies 📊
+Increase revenue 💰
+Identify risky customers early ⚠️
+
+--
