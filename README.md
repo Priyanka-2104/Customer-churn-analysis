@@ -54,16 +54,16 @@ telco-churn/
 ## 📸 App Screenshots
 
 ### 🧾 Input Form
-![Input Form](screenshots/01_streamlit_input.png)
+![Input Form](./screenshots/01_streamlit_input.png)
 
 ### 📊 Prediction Result
-![Prediction Result](screenshots/02_streamlit_prediction.png)
+![Prediction Result](./screenshots/02_streamlit_prediction.png)
 
 ### 📉 Churn Analysis (Part 1)
-![Chart 1](screenshots/03_churn_distribution_1.png)
+![Chart 1](./screenshots/03_churn_distribution_1.png)
 
 ### 📉 Churn Analysis (Part 2)
-![Chart 2](screenshots/04_churn_distribution_2.png)
+![Chart 2](./screenshots/04_churn_distribution_2.png)
 
 ---
 
@@ -90,7 +90,7 @@ streamlit run run.py
 
 --
 
-📈 Key Insights
+## 📈 Key Insights
 
 Customers with shorter tenure are more likely to churn
 Higher monthly charges increase churn probability
@@ -98,7 +98,7 @@ Contract type strongly affects retention
 
 --
 
-💡 Business Impact
+## 💡 Business Impact
 
 This project helps companies:
 Reduce customer loss 📉
